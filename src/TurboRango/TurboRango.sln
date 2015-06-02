@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurboRango.Dominio", "TurboRango.Dominio\TurboRango.Dominio.csproj", "{693D56D4-4DFD-4966-A972-3CA139375013}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurboRango.Importador.XML", "TurboRango.Importador.XML\TurboRango.Importador.XML.csproj", "{7DC8ACF2-EF32-42A9-AC4F-7F13E697EBEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{693D56D4-4DFD-4966-A972-3CA139375013}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{693D56D4-4DFD-4966-A972-3CA139375013}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{693D56D4-4DFD-4966-A972-3CA139375013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DC8ACF2-EF32-42A9-AC4F-7F13E697EBEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DC8ACF2-EF32-42A9-AC4F-7F13E697EBEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DC8ACF2-EF32-42A9-AC4F-7F13E697EBEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DC8ACF2-EF32-42A9-AC4F-7F13E697EBEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

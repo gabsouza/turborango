@@ -2,15 +2,16 @@
 
 namespace TurboRango.Dominio
 {
-    internal class Restaurante
+    public class Restaurante
     {
-        internal string Nome { get; set; }
-        internal int Capacidade { get; set; }
+        public string Nome { get; private set; }
+        public int? Capacidade { get; private set; }
+        public bool? Lotado { get; private set; }
 
-        internal Categoria categoria { get; set; }
+        public Categoria categoria { get; set; }
 
-        internal Contato contato { get; set; }
-        internal Localizacao localizacao { get; set; }
+        public Contato contato { get; set; }
+        public Localizacao localizacao { get; set; }
 
 
 

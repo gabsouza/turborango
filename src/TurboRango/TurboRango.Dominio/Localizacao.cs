@@ -2,12 +2,12 @@
 
 namespace TurboRango.Dominio
 {
-    internal class Localizacao
+    public class Localizacao
     {
 
-        internal string Bairro { get; set; }
-        internal string Latitude { get; set; }
-        internal string Longitude { get; set; }
-        internal string Logradouro { get; set; }
+        public string Bairro { get; private set; }
+        public string Latitude { get;  private set; }
+        public string Longitude { get; private set; }
+        public string Logradouro { get; private set; }
     }
 }
