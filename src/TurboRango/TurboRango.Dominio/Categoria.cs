@@ -9,8 +9,8 @@ namespace TurboRango.Dominio
 {
     internal enum Categoria
     {
-        [Description("Comun")]
-        COMUN,
+        [Description("Comum")]
+        COMUM,
 
         [Description("Cozinha natural")]
         COZINHANATURAL,
