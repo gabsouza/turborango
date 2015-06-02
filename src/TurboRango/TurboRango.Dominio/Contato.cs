@@ -8,7 +8,7 @@ namespace TurboRango.Dominio
 {
     internal class Contato
     {
-        internal string site { get; set; }
-        internal string telefone { get; set; }
+        internal string Site { get; set; }
+        internal string Telefone { get; set; }
     }
 }
