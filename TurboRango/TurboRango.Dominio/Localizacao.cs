@@ -10,7 +10,8 @@ namespace TurboRango.Dominio
     {
         internal string Bairro { get; set; }
         internal int Latitude { get; set; }
-        internal Categoria categoria { get; set; }
+        internal string Logradouro { get; set; }
+        internal string Longitude { get; set; }
 
     }
 }
