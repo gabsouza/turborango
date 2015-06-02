@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace TurboRango.Dominio
 {
-    class Localizacao
+    internal class Restaurante
     {
+        internal string Bairro { get; set; }
+        internal int Latitude { get; set; }
+        internal Categoria categoria { get; set; }
+
     }
 }

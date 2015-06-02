@@ -5,7 +5,7 @@
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{f2b6cace-a181-4aba-a857-63510da28136}</ProjectGuid>
+    <ProjectGuid>{F2B6CACE-A181-4ABA-A857-63510DA28136}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TurboRango.Dominio</RootNamespace>
@@ -37,8 +37,12 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categoria.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Description.cs" />
+    <Compile Include="Localizacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restaurante.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -48,5 +52,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
 </Project>
