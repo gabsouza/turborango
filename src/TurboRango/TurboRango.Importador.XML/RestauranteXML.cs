@@ -83,5 +83,14 @@ namespace TurboRango.Importador.XML
                       };
             throw new NotImplementedException();
        }
+
+        public IList<string> OrdenarPorNomeAsc()
+        {
+            return(
+                from n in restaurantes 
+                orderby n.Attribute("nome").Value
+                select n.Attribute("nome").Value
+            ).ToList();
+        }
     }
 }
