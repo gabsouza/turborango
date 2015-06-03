@@ -15,6 +15,16 @@ namespace TurboRango.Importador.XML
             const string nomeArquivo = "restaurantes.xml";
             var restauranteXML = new RestauranteXML(nomeArquivo);
             var nomes = restauranteXML.ObterNomes();
-        }
+
+            var connString = @"Data Source=.;Initial Catalog=TurboRango_dev;UID=sa;PWD=feevale";
+            var acessoAoBanco = new CarinhaQueManipulaOBanco(connString);
+
+            acessoAoBanco.Inserir(new Contato
+            {
+                Site = "www.dogao.gif",
+                Telefone = "55555555"
+
+            });
+    }
     }
 }

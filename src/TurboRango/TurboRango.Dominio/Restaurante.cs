@@ -4,9 +4,9 @@ namespace TurboRango.Dominio
 {
     public class Restaurante
     {
-        public string Nome { get; private set; }
-        public int? Capacidade { get; private set; }
-        public bool? Lotado { get; private set; }
+        public string Nome { get; set; }
+        public int? Capacidade { get; set; }
+        public bool? Lotado { get; set; }
 
         public Categoria categoria { get; set; }
 
