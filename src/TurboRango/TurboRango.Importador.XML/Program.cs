@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TurboRango.Dominio;
+using TurboRango.ImportadorXML;
 
 namespace TurboRango.Importador.XML
 {
@@ -13,7 +14,7 @@ namespace TurboRango.Importador.XML
         {
 
             const string nomeArquivo = "restaurantes.xml";
-            var restauranteXML = new RestauranteXML(nomeArquivo);
+            var restauranteXML = new RestaurantesXML(nomeArquivo);
             var nomes = restauranteXML.ObterNomes();
 
             var connString = @"Data Source=.;Initial Catalog=TurboRango_dev;UID=sa;PWD=feevale";
