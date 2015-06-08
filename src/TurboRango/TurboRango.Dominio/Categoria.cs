@@ -1,33 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.ComponentModel;
 namespace TurboRango.Dominio
 {
     public enum Categoria
     {
         [Description("Comum")]
-        COMUM,
+        Comum,
 
-        [Description("Cozinha natural")]
-        COZINHANATURAL,
+        [Description("Cozinha Natural")]
+        CozinhaNatural,
 
-        [Description("CozinhaMexicana")]
-        COZINHAMEXICANA,
+        [Description("Cozinha Mexicana")]
+        CozinhaMexicana,
 
-        [Description("CozinhaMexicana")]
-        CHURRASCARIA,
+        [Description("Churrascaria")]
+        Churrascaria,
 
-        [Description("CozinhaMexicana")]
-        COZINHAJAPONESA,
+        [Description("Cozinha Japonesa")]
+        CozinhaJaponesa,
 
-        [Description("CozinhaMexicana")]
-        FASTFOOD,
+        [Description("Fast Food")]
+        FastFood,
 
-        [Description("CozinhaMexicana")]
-        PIZARRIA,
+        [Description("Pizzaria")]
+        Pizzaria,
     }
 }
