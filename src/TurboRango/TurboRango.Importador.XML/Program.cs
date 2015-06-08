@@ -17,7 +17,7 @@ namespace TurboRango.Importador.XML
             var restauranteXML = new RestaurantesXML(nomeArquivo);
             var nomes = restauranteXML.ObterNomes();
 
-            var connString = @"Data Source=.;Initial Catalog=TurboRango_dev;UID=sa;PWD=feevale";
+            var connString = @"Data Source=.;Initial Catalog=TurboRango_dev;";
             var acessoAoBanco = new CarinhaQueManipulaOBanco(connString);
 
             acessoAoBanco.Inserir(new Contato
