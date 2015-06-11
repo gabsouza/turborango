@@ -3,7 +3,7 @@ namespace TurboRango.Web.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AULA : DbMigration
+    public partial class CriarTabelas : DbMigration
     {
         public override void Up()
         {
@@ -17,12 +17,15 @@ namespace TurboRango.Web.Migrations
                         Lotado = c.Boolean(),
                         Categoria = c.Int(nullable: false),
                         Contato_Id = c.Int(),
+                        Estacionamento_Id = c.Int(),
                         Localizacao_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Contatoes", t => t.Contato_Id)
+                .ForeignKey("dbo.Estacionamentoes", t => t.Estacionamento_Id)
                 .ForeignKey("dbo.Localizacaos", t => t.Localizacao_Id)
                 .Index(t => t.Contato_Id)
+                .Index(t => t.Estacionamento_Id)
                 .Index(t => t.Localizacao_Id);
             
             CreateTable(
@@ -32,6 +35,16 @@ namespace TurboRango.Web.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Site = c.String(),
                         Telefone = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Estacionamentoes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Preco = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        QuantidadeVagas = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -124,6 +137,7 @@ namespace TurboRango.Web.Migrations
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Restaurantes", "Localizacao_Id", "dbo.Localizacaos");
+            DropForeignKey("dbo.Restaurantes", "Estacionamento_Id", "dbo.Estacionamentoes");
             DropForeignKey("dbo.Restaurantes", "Contato_Id", "dbo.Contatoes");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
@@ -132,6 +146,7 @@ namespace TurboRango.Web.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Restaurantes", new[] { "Localizacao_Id" });
+            DropIndex("dbo.Restaurantes", new[] { "Estacionamento_Id" });
             DropIndex("dbo.Restaurantes", new[] { "Contato_Id" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
@@ -139,6 +154,7 @@ namespace TurboRango.Web.Migrations
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Localizacaos");
+            DropTable("dbo.Estacionamentoes");
             DropTable("dbo.Contatoes");
             DropTable("dbo.Restaurantes");
         }

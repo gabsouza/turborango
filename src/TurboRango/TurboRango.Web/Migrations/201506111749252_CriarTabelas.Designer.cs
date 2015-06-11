@@ -7,13 +7,13 @@ namespace TurboRango.Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class AULA : IMigrationMetadata
+    public sealed partial class CriarTabelas : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AULA));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CriarTabelas));
         
         string IMigrationMetadata.Id
         {
-            get { return "201506102039368_AULA"; }
+            get { return "201506111749252_CriarTabelas"; }
         }
         
         string IMigrationMetadata.Source
