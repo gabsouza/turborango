@@ -161,6 +161,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReservasController.cs" />
     <Compile Include="Controllers\RestaurantesController.cs" />
     <Compile Include="Controllers\SorteiosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -169,6 +170,10 @@
     <Compile Include="Migrations\201506111749252_CriarTabelas.cs" />
     <Compile Include="Migrations\201506111749252_CriarTabelas.Designer.cs">
       <DependentUpon>201506111749252_CriarTabelas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506111844519_CriarReservas.cs" />
+    <Compile Include="Migrations\201506111844519_CriarReservas.Designer.cs">
+      <DependentUpon>201506111844519_CriarReservas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -210,7 +215,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -242,6 +246,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Reserva\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -259,6 +264,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201506111749252_CriarTabelas.resx">
       <DependentUpon>201506111749252_CriarTabelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506111844519_CriarReservas.resx">
+      <DependentUpon>201506111844519_CriarReservas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
