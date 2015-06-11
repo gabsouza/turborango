@@ -9,6 +9,6 @@ namespace TurboRango.Dominio
     public class Estacionamento: Entidade
     {
         public decimal Preco { get; set; }
-        public int QuantidadeVagas { get; set; }
+        public int CapacidadeVagas { get; set; }
     }
 }
