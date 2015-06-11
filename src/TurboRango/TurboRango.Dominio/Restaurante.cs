@@ -12,8 +12,7 @@ namespace TurboRango.Dominio
 
         public virtual Contato Contato { get; set; }
         public virtual Localizacao Localizacao { get; set; }
-
-
-
+        public virtual Estacionamento Estacionamento { get; set; }
+        
     }
 }
