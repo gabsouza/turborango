@@ -8,7 +8,7 @@ using TurboRango.Web.Models;
 
 namespace TurboRango.Web.Controllers
 {
-    public class ReservasController: Controller
+    public class ReservasController : Controller
     {
 
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -20,12 +20,26 @@ namespace TurboRango.Web.Controllers
             return View();
         }
 
+        [HttpPost]
         [AllowAnonymous]
-        public JsonResult Reservas()
+        public JsonResult Reservas(CriarReservaViewModel novaReserva)
         {
-            //db.Reserva.Add(reserva);
+            string mensagem = "não foi reservado!";
+            if (ModelState.IsValid)
+            {
+                Reserva reserva = new Reserva
+                {
+                    IdRestaurante = novaReserva.IdRestaurante,
+                    Lugares = novaReserva.Lugares,
+                    VagasEstacionamento = novaReserva.VagasEstacionamento,
+                    Data = novaReserva.Data ?? DateTime.Now
+                };
 
-            return Json(new { mensagem = "Reservado!" }, JsonRequestBehavior.AllowGet);
+                db.Reserva.Add(reserva);
+                db.SaveChanges();
+                mensagem = "Reservado!";
+            }
+            return Json(new { mensagem = mensagem }, JsonRequestBehavior.AllowGet);            
         }
     }
 }

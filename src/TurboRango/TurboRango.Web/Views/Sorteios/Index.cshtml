@@ -10,14 +10,14 @@
 <br />
 <p><button onclick="ObterFormulario()" class="btn btn-primary btn-lg">Reservar</button></p>
 
-<form id="FazerReserva" method="POST">
+<form id="FazerReserva" action="javaScript:ReservaJson()" method="POST">
     <fieldset>
 
         <legend>Reserva</legend>
 
         <div class="control-group">
             <div class="controls">
-                <input id="textinput" name="IdRestaurante" type="hidden" class="input-xlarge">
+                <input id="textinput" name="IdRestaurante" type="hidden" class="input-xlarge" value="1">
             </div>
         </div>
 
@@ -44,12 +44,11 @@
 
         <div class="control-group">
             <div class="controls">
-                <input id="textinput" name="Reservar" type="submit" class="input-xlarge" onclick="ReservaJson()">
+                <input id="textinput" name="Reservar" type="submit" class="input-xlarge">
             </div>
         </div>
 
     </fieldset>
-</form>
 </form>
 
 @section Scripts {
@@ -106,8 +105,13 @@
 
         function ReservaJson(){
             alert("ok");
-            var dados = $('form[id=FazerReserva]');
-            $.get('@Url.Action("Reservas", "Reservas")')
+            var dados = $('form[id=FazerReserva]').serialize();
+            $.ajax({
+                url:'@Url.Action("Reservas", "Reservas")',
+                dataType: 'JSON',
+                type: 'POST',
+                data: dados
+            })
                 .done(function(res)
                 {
                     console.log(res); })
