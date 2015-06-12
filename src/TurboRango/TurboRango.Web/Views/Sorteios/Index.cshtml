@@ -10,46 +10,46 @@
 <br />
 <p><button onclick="ObterFormulario()" class="btn btn-primary btn-lg">Reservar</button></p>
 
-<form action="ReservaJson()" method="POST">
-        <fieldset>
+<form id="FazerReserva" method="POST">
+    <fieldset>
 
-            <legend>Reserva</legend>
+        <legend>Reserva</legend>
 
-            <div class="control-group">
-                <div class="controls">
-                    <input id="textinput" name="IdRestaurante" type="hidden" class="input-xlarge">
-                </div>
+        <div class="control-group">
+            <div class="controls">
+                <input id="textinput" name="IdRestaurante" type="hidden" class="input-xlarge">
             </div>
+        </div>
 
-            <div class="control-group">
-                <label class="control-label" for="textinput">Lugares</label>
-                <div class="controls">
-                    <input id="textinput" name="Lugares" type="number" class="input-xlarge">
-                </div>
+        <div class="control-group">
+            <label class="control-label" for="textinput">Lugares</label>
+            <div class="controls">
+                <input id="textinput" name="Lugares" type="number" class="input-xlarge">
             </div>
+        </div>
 
-            <div class="control-group">
-                <label class="control-label" for="textinput">Vagas de estacionamento</label>
-                <div class="controls">
-                    <input id="textinput" name="VagasEstacionamento" type="number" class="input-xlarge">
-                </div>
+        <div class="control-group">
+            <label class="control-label" for="textinput">Vagas de estacionamento</label>
+            <div class="controls">
+                <input id="textinput" name="VagasEstacionamento" type="number" class="input-xlarge">
             </div>
+        </div>
 
-            <div class="control-group">
-                <label class="control-label" for="textinput">Dia da reserva</label>
-                <div class="controls">
-                    <input id="textinput" name="Data" type="date" class="input-xlarge">
-                </div>
+        <div class="control-group">
+            <label class="control-label" for="textinput">Dia da reserva</label>
+            <div class="controls">
+                <input id="textinput" name="Data" type="date" class="input-xlarge">
             </div>
+        </div>
 
-            <div class="control-group">
-                <div class="controls">
-                    <input id="textinput" name="Reservar" type="submit" class="input-xlarge">
-                </div>
+        <div class="control-group">
+            <div class="controls">
+                <input id="textinput" name="Reservar" type="submit" class="input-xlarge" onclick="ReservaJson()">
             </div>
+        </div>
 
-        </fieldset>
-    </form>
+    </fieldset>
+</form>
 </form>
 
 @section Scripts {
@@ -77,35 +77,43 @@
                 var posicaoAtual = resultado.coords;
 
                 $.get('@Url.Action("Restaurantes", "Restaurantes")')
-                    .done(function(response) {
+                        .done(function(response) {
 
-                        response.restaurantes.sort(function(r1, r2) {
+                            response.restaurantes.sort(function(r1, r2) {
 
-                            if (r1.Localizacao !== null && r2.Localizacao !== null) {
-                                var distancia1 = distancia(posicaoAtual, r1.Localizacao);
-                                var distancia2 = distancia(posicaoAtual, r2.Localizacao);
-                                return distancia1 > distancia2;
-                            }
+                                if (r1.Localizacao !== null && r2.Localizacao !== null) {
+                                    var distancia1 = distancia(posicaoAtual, r1.Localizacao);
+                                    var distancia2 = distancia(posicaoAtual, r2.Localizacao);
+                                    return distancia1 > distancia2;
+                                }
+                            });
+
+                            var random = gerarRandomico(0, response.restaurantes.length);
+                            // sorteia de forma aleatória mas só escolhe entre os 10 mais próximos
+                            var escolhido = response.restaurantes[random % 10];
+                            feedback.text(escolhido.Nome + ' ' + round(distancia(posicaoAtual, escolhido.Localizacao)) + ' km');
+
+                            console.log(response.restaurantes);
+
+                            $('[type = hidden]').attr('Value', escolhido.Id);
                         });
-
-                        var random = gerarRandomico(0, response.restaurantes.length);
-                        // sorteia de forma aleatória mas só escolhe entre os 10 mais próximos
-                        var escolhido = response.restaurantes[random % 10];
-                        feedback.text(escolhido.Nome + ' ' + round(distancia(posicaoAtual, escolhido.Localizacao)) + ' km');
-
-                        console.log(response.restaurantes);
-
-                        $('[type = hidden]').attr('Value', escolhido.Id);
-                    });
             },
-            function error(err) {
-                console.error(err);
-            },
-            { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
-        );
+                function error(err) {
+                    console.error(err);
+                },
+                { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+            );
 
         function ReservaJson(){
-
+            alert("ok");
+            var dados = $('form[id=FazerReserva]');
+            $.get('@Url.Action("Reservas", "Reservas")')
+                .done(function(res)
+                {
+                    console.log(res); })
+                .fail(function(res)
+                {
+                    console.log(res)});
         }
     </script>
 }
