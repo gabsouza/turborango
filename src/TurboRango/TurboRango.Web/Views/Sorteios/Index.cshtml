@@ -10,7 +10,7 @@
 <br />
 <p><button onclick="ObterFormulario()" class="btn btn-primary btn-lg">Reservar</button></p>
 
-<form id="FazerReserva" action="javaScript:ReservaJson()" method="POST">
+<form hidden="hidden" id="FazerReserva" action="javaScript:ReservaJson()" method="POST">
     <fieldset>
 
         <legend>Reserva</legend>
@@ -104,7 +104,6 @@
             );
 
         function ReservaJson(){
-            alert("ok");
             var dados = $('form[id=FazerReserva]').serialize();
             $.ajax({
                 url:'@Url.Action("Reservas", "Reservas")',
@@ -114,10 +113,17 @@
             })
                 .done(function(res)
                 {
-                    console.log(res); })
+                    console.log(res);
+                    alert("Reservado!");
+                })
                 .fail(function(res)
                 {
                     console.log(res)});
         }
+
+        function ObterFormulario(){
+
+            $('form[id=FazerReserva]').removeAttr('hidden');
+        };
     </script>
 }
